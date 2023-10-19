@@ -21,3 +21,4 @@ get_populars = lambda data, first=100: (data
 get_sums = lambda data, name: data.loc[:, list(filter(lambda x: name in x, data.columns))].sum()
 
 
+get_vc = lambda data, first=20: data.value_counts().iloc[:first]
