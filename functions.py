@@ -27,5 +27,5 @@ get_sums = lambda data, name: data.loc[:, list(filter(lambda x: name in x, data.
 """Нужна для бинарных переменных, считает суммы по каждому столбцу, где в названии встречается какое-то слово."""
 
 
-get_vc = lambda data, first=20: data.value_counts().iloc[:first]
+get_vc = lambda data, first=20: data.value_counts(ascending=False).iloc[:first]
 """Выводит на экран (по умолчанию) 20 самых популярных значений в столбце и количество их в нем."""
