@@ -2,12 +2,12 @@ from flask import Flask
 import requests
 import pandas as pd
 
-X = pd.read_pickle('app/data/x_eval.pkl')
-y = pd.read_pickle('app/data/y_eval.pkl')
+X = pd.read_csv('app/data/x_eval.csv')
+y = pd.read_csv('app/data/y_eval.csv')
 
 
 if __name__ == '__main__':
-    r = requests.post('http://localhost/predict', json=X)
+    r = requests.post('http://localhost/predict', json=X.to_json())
     print(f'Status: {r.status_code}')
 
     if r.status_code == 200:
