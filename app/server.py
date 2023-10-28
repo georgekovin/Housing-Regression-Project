@@ -16,10 +16,14 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predfunc():
-    features = np.array(request.json)
-    pred = model.predict(features)
+    features = (np.array(request.json)
+                .reshape(1, -1)
+                .tolist())
     
-    return jsonify({"prediction": pred})
+    prediction = (model
+                  .predict(features)
+                  .tolist())
+    return str(round(prediction[0]*1000, 2))
 
 
 if __name__ == '__main__':
