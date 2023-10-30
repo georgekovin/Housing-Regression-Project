@@ -162,5 +162,6 @@ cython_debug/
 /data
 /catboost_info
 /app_
-/app/data
 /img
+/app/client/data
+/app/server/models
